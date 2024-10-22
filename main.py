@@ -1,12 +1,15 @@
 import random
-import itertools
 
 # Создание случайного списка из 20 значений по 4 случайных целых числа от -10 до 10
 values = [random.randint(-10, 10) for _ in range(20)]
 print("Список значений:", values)
 
 # Нахождение всех уникальных комбинаций
-pairs = list(itertools.combinations(values, 2))
+pairs = []
+for i in range(len(values)):
+    for j in range(i+1, len(values)):
+        pairs.append((values[i],values[j]))
+
 print("\nВсе уникальные пары:")
 print(pairs)
 
